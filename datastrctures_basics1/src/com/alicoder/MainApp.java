@@ -1,7 +1,5 @@
 package com.alicoder;
 
-import java.time.LocalTime;
-
 /*
  * int secondSmallest(int[] x)
  * Returns second smallest element in array x. If x has fewer than 2 elements returns 0.
@@ -10,7 +8,7 @@ import java.time.LocalTime;
  * assuming all numbers are non negative.
  * time complexity is O(n)
  * This question was asked by Goldman sachs. 
- * Author: Ali Mulondo
+ * @Author: Ali Mulondo
  * 
  * */
 
@@ -25,6 +23,8 @@ public class MainApp {
 		// TODO Auto-generated method stub
 		
 		System.out.println(secondSmallest(test));
+		
+		
 		
 }
 	
@@ -49,7 +49,7 @@ public class MainApp {
 		
 		temp = x[0];
 		if(smallest ==0 ) smallest = smallest + 1;
-		x[checker]= smallest<<6;
+		x[checker]= smallest<<30;  //i use 30 to get the largest posible integer
      for(int i=1; i<x.length; i++) {
 			
 			if(temp>x[i]) {
@@ -60,7 +60,7 @@ public class MainApp {
 			
 		}
      if(smallest ==0 ) smallest = smallest -1;
-     x[checker]= smallest >> 6;
+     x[checker]= smallest >> 30;
 				
      
 		return secondsmallest;

@@ -14,17 +14,14 @@ package com.alicoder;
 
 public class MainApp {
 
-	private static int checker;
-
 	public static void main(String[] args) {
 		
-		int[] test = new int[] {7,4,6,2, 1, 3, 8, 9};
+		int[] test = new int[] {7,4,6,2, 3, 8, 9};
 		
 		// TODO Auto-generated method stub
 		
 		System.out.println(secondSmallest(test));
-		
-		
+			
 		
 }
 	
@@ -40,30 +37,50 @@ public class MainApp {
 			
 			if(temp>x[i]) {
 				temp = x[i];
-				checker = i;
 				smallest= temp;
 				
 			}
 			
 		}
 		
-		temp = x[0];
-		if(smallest ==0 ) smallest = smallest + 1;
-		x[checker]= smallest<<30;  //i use 30 to get the largest posible integer
-     for(int i=1; i<x.length; i++) {
+		 int[] holder = deleteSmallest(x, smallest);
+		
+		temp = holder[0];
+		
+     for(int i=1; i<holder.length; i++) {
 			
-			if(temp>x[i]) {
-				temp = x[i];
+			if(temp>holder[i]) {
+				temp = holder[i];
 				 secondsmallest= temp;
 				
 			}
 			
 		}
-     if(smallest ==0 ) smallest = smallest -1;
-     x[checker]= smallest >> 30;
-				
+    				
      
 		return secondsmallest;
+	}
+	
+	public static int[] deleteSmallest(int[] x, int smallest) {
+		  int[] holder = new int[x.length-1];
+		  int i;
+		  for( i=0; i<x.length; i++) {
+			  
+			  if(smallest==x[i]) break;
+			  
+		  }
+		  
+		  for(int j=i; j<x.length-1; j++) {
+			  x[j] =x[j+1];
+		  }
+		 		 
+		  for(int k=0; k<x.length-1; k++) {
+			  holder[k] = x[k];
+			 
+		  }
+		  
+		  return holder;
+		
 	}
 	
 }

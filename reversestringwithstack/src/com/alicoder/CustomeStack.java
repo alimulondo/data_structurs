@@ -1,6 +1,6 @@
 package com.alicoder;
 
-public class CustomeStack {
+public class CustomeStack{
 	
 	private int maxSize;
 	private int top =-1;
